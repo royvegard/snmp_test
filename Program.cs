@@ -35,36 +35,33 @@ namespace snmp_test
             var watch = System.Diagnostics.Stopwatch.StartNew();
             for (int i = 0; i < fetches; i++)
             {
-                tasks.Add(Task.Run(() => Messenger.Get(VersionCode.V2,
-                new IPEndPoint(IPAddress.Parse("104.236.166.95"), 161),
+                tasks.Add(Task.Run(() => Messenger.Get(VersionCode.V1,
+                new IPEndPoint(IPAddress.Parse("35.157.118.224"), 161),
                 new OctetString("public"),
                 new List<Variable> {
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.1.0")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.2.0")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.3.0")),
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.4.0")),
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.5.0")),
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.6.0")),
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.7.0")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.8.0")),
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.9.1.3.1")),
                     new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.9.1.3.4")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.9.1.3.6")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.9.1.3.8")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.1.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.1.2")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.2.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.2.2")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.3.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.3.2")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.4.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.4.2")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.5.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.5.2")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.6.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.6.2")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.7.1")),
-                    new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.7.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.9.1.3.6")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.1.9.1.3.8")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.1.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.1.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.2.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.2.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.3.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.3.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.4.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.4.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.5.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.5.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.6.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.6.2")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.7.1")),
+                    // new Variable(new ObjectIdentifier("1.3.6.1.2.1.2.2.1.7.2")),
                 },
                 60000)));
 
@@ -78,7 +75,7 @@ namespace snmp_test
             System.Console.WriteLine();
 
             System.Console.WriteLine("Run time: {0} ms", watch.ElapsedMilliseconds);
-            System.Console.WriteLine("Variable fetch rate: {0} ms/variable", (double)watch.ElapsedMilliseconds / (double)(fetches * 26) );
+            System.Console.WriteLine("Variable fetch rate: {0} ms/variable", (double)watch.ElapsedMilliseconds / (double)(fetches * 26));
         }
     }
 }
