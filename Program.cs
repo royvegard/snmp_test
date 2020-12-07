@@ -75,7 +75,8 @@ namespace snmp_test
             System.Console.WriteLine();
 
             System.Console.WriteLine("Run time: {0} ms", watch.ElapsedMilliseconds);
-            System.Console.WriteLine("Variable fetch rate: {0} ms/variable", (double)watch.ElapsedMilliseconds / (double)(fetches * 26));
+            System.Console.WriteLine("Variables fetched: {0}", (double)(fetches * results[0].Count));
+            System.Console.WriteLine("Variable fetch rate: {0} ms/variable", (double)watch.ElapsedMilliseconds / (double)(fetches * results[0].Count));
         }
     }
 }
